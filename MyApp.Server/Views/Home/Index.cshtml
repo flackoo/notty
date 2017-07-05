@@ -1,9 +1,15 @@
 ﻿@{
-	ViewBag.Title = "Home";
+	ViewBag.Title = "Notty";
 }
+
+@Scripts.Render("~/bundles/chartjs");
 
 @section styles {
 	<link rel="stylesheet" href="~/css/home.css">
+}
+
+@section scripts {
+	<script src="~/js/home.js"></script>
 }
 
 <br><br>
@@ -55,6 +61,7 @@
 <div class="row">
 	<div class="col-lg-4">
 		<h2>Why you should choose Notty?</h2>
+		<hr>
 		<p class="text-primary">
 			<i class="fa fa-angle-double-right"></i>&nbsp;
 			It is easy to use.
@@ -65,16 +72,19 @@
 		</p>
 		<p class="text-info">
 			<i class="fa fa-angle-double-right"></i>&nbsp;
-			
+			It will let you set your priorities.
 		</p>
-		<!--<p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-		<p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-		<p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
-		<p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
-		<p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-		<p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>-->
+		<p class="text-danger">
+			<i class="fa fa-angle-double-right"></i>&nbsp;
+			It's functionality is free.
+		</p>
+		<p class="text-warning">
+			<i class="fa fa-angle-double-right"></i>&nbsp;
+			You don't want to get tired right? 
+			<i class="fa fa-arrow-circle-o-right fa-lg"></i>
+		</p>
 	</div>
 	<div class="col-lg-8">
-
+		<div id="pie-container"></div>
 	</div>
 </div>

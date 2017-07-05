@@ -209,6 +209,8 @@
   <ItemGroup>
     <Content Include="libs\bootstrap.css" />
     <Content Include="libs\bootstrap.min.css" />
+    <Content Include="libs\Chart.bundle.min.js" />
+    <Content Include="libs\Chart.min.js" />
     <Content Include="libs\font-awesome.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
