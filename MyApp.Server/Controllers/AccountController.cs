@@ -53,7 +53,14 @@ namespace MyApp.Server.Controllers
 			}
 		}
 
-		//
+		// GET: /Account/Index
+		[HttpGet]
+		public ViewResult Index()
+		{
+			
+			return View();
+		}
+
 		// GET: /Account/Login
 		[AllowAnonymous]
 		public ActionResult Login(string returnUrl)

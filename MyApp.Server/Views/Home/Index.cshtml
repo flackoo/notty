@@ -2,7 +2,7 @@
 	ViewBag.Title = "Notty";
 }
 
-@Scripts.Render("~/bundles/chartjs");
+@Scripts.Render("~/bundles/chartjs")
 
 @section styles {
 	<link rel="stylesheet" href="~/css/home.css">
@@ -12,11 +12,20 @@
 	<script src="~/js/home.js"></script>
 }
 
+@if(this.User.Identity.IsAuthenticated)
+{
+	<div class="recent-notes">
+		<div class="add-note-container">
+			<input type="text" id="new-note-input">
+		</div>
+	</div>
+}
+
 <br><br>
 <div class="row">
 	<div class="col-lg-12">
 		<div class="page-header">
-			<h1><b>Stop</b> forgetting.<br/><b>Start</b> nottying!</h1>
+			<h1><b>Stop</b> forgetting.<br /><b>Start</b> nottying!</h1>
 		</div>
 	</div>
 </div>
@@ -53,13 +62,13 @@
 				<p>There wouldn't be paper, hardrives and memory if people could remember everything.</p>
 				<small>Technology</small>
 			</blockquote>
-		</div>	
+		</div>
 	</div>
 </div>
 
 <br><br>
 <div class="row">
-	<div class="col-lg-4">
+	<div class="col-lg-4" id="advantages-container">
 		<h2>Why you should choose Notty?</h2>
 		<hr>
 		<p class="text-primary">
@@ -80,11 +89,27 @@
 		</p>
 		<p class="text-warning">
 			<i class="fa fa-angle-double-right"></i>&nbsp;
-			You don't want to get tired right? 
+			You don't want to get tired right?
 			<i class="fa fa-arrow-circle-o-right fa-lg"></i>
 		</p>
 	</div>
 	<div class="col-lg-8">
-		<div id="pie-container"></div>
+		<canvas id="doughnut-container" height="295" width="500"></canvas>
 	</div>
 </div>
+
+@if (!this.User.Identity.IsAuthenticated)
+{
+	<br><br><br><br>
+	<div class="row">
+		<div class="col-md-12 buttons-heading">
+			<h1>If you like the idea, you can: </h1>
+		</div>
+	</div>
+		<div class="row">
+			<div class="col-md-12 join-buttons">
+				<a class="button login-btn" href="/account/login">Sign in</a>
+				<a class="button register-btn" href="/account/register">Register</a>
+			</div>
+		</div>
+}
