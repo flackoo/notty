@@ -9,7 +9,7 @@ namespace MyApp.Server
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-									"~/Scripts/jquery-{version}.js"));
+									"~/Scripts/jquery-3.2.1.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
 									"~/Scripts/jquery.validate*"));
@@ -22,10 +22,14 @@ namespace MyApp.Server
 			// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
 			bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
 									"~/Scripts/modernizr-*"));
-
+			
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
 								"~/Scripts/bootstrap.js",
 								"~/Scripts/respond.js"));
+
+			//bundles.Add(new ScriptBundle("~/bundles/scroll").Include(
+			//					"~/libs/perfect-scrollbar.jquery.min.js",
+			//					"~/libs/perfect-scrollbar.min.js"));
 
 			bundles.Add(new StyleBundle("~/bundles/defaults").Include(
 								"~/libs/bootstrap.min.css",
@@ -33,6 +37,9 @@ namespace MyApp.Server
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 								"~/css/site.css"));
+
+			//bundles.Add(new StyleBundle("~/libs/scroll").Include(
+			//					"~/libs/perfect-scrollbar.min.css"));
 		}
 	}
 }

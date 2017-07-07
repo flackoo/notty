@@ -5,20 +5,42 @@
 @Scripts.Render("~/bundles/chartjs")
 
 @section styles {
+	<link rel="stylesheet" href="~/libs/perfect-scrollbar.css">
 	<link rel="stylesheet" href="~/css/home.css">
 }
 
 @section scripts {
+	<script src="~/Scripts/perfect-scrollbar.jquery.js"></script>
+	<script src="~/Scripts/perfect-scrollbar.js"></script>
+	<script src="~/js/noteManager.js"></script>
 	<script src="~/js/home.js"></script>
 }
 
 @if(this.User.Identity.IsAuthenticated)
 {
-	<div class="recent-notes">
-		<div class="add-note-container">
-			<input type="text" id="new-note-input">
+<br>
+<div class="row">
+	<div class="col-lg-12">
+		<h1>Recent notes</h1>
+		<hr>
+		<div class="recent-notes">
+			<div class="add-note-container">
+				<div class="new-note-content">
+					<textarea id="new-note-input" placeholder="Add new note..."></textarea>
+				</div>
+				<div title="Priority" class="note-btn" id="note-priority-btn">
+					<i class="fa fa-exclamation"></i>
+				</div>
+				<div title="Reminder" class="note-btn" id="note-reminder-btn">
+					<i class="fa fa-bell-o"></i>
+				</div>
+				<div title="Add" class="note-btn" id="add-note-btn">
+					<i class="fa fa-plus-circle"></i>
+				</div>
+			</div>
 		</div>
 	</div>
+</div>
 }
 
 <br><br>

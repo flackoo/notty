@@ -170,3 +170,10 @@ C:\Users\User\Desktop\MyApp\MyApp.Server\bin\Microsoft.Owin.Security.MicrosoftAc
 C:\Users\User\Desktop\MyApp\MyApp.Server\obj\Debug\MyApp.Server.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\MyApp\MyApp.Server\obj\Debug\MyApp.Server.dll
 C:\Users\User\Desktop\MyApp\MyApp.Server\obj\Debug\MyApp.Server.pdb
+C:\Users\User\Desktop\MyApp\MyApp.Server\bin\Ninject.dll
+C:\Users\User\Desktop\MyApp\MyApp.Server\bin\Ninject.Web.Common.dll
+C:\Users\User\Desktop\MyApp\MyApp.Server\bin\Ninject.Web.Mvc.dll
+C:\Users\User\Desktop\MyApp\MyApp.Server\bin\WebActivatorEx.dll
+C:\Users\User\Desktop\MyApp\MyApp.Server\bin\Ninject.xml
+C:\Users\User\Desktop\MyApp\MyApp.Server\bin\Ninject.Web.Common.xml
+C:\Users\User\Desktop\MyApp\MyApp.Server\bin\Ninject.Web.Mvc.xml

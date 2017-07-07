@@ -10,20 +10,23 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyApp.Server.Models;
 using MyApp.Models;
+using MyApp.Data.UnitOfWork;
+using MyApp.Data;
 
 namespace MyApp.Server.Controllers
 {
 	[Authorize]
-	public class AccountController : Controller
+	public class AccountController : BaseController
 	{
 		private ApplicationSignInManager _signInManager;
 		private ApplicationUserManager _userManager;
 
-		public AccountController()
+		public AccountController(IMyAppData data) : base(data)
 		{
 		}
 
 		public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+			: this(new MyAppData())
 		{
 			UserManager = userManager;
 			SignInManager = signInManager;
