@@ -7,7 +7,7 @@ namespace MyApp.Data
 
 	public class MyAppDbContext : IdentityDbContext<User>
 	{
-		public MyAppDbContext() : base("WorkPC", throwIfV1Schema: false)
+		public MyAppDbContext() : base("HomePC", throwIfV1Schema: false)
 		{
 			Database.SetInitializer(new MigrateDatabaseToLatestVersion<MyAppDbContext, Configuration>());
 		}

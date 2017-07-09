@@ -7,8 +7,19 @@
 	<link rel="stylesheet" href="~/css/login.css">
 }
 
-<div class="row login-form-container">
+@if(this.ViewBag.LoginError == true)
+{
 	<div class="col-md-6 col-md-offset-3">
+		<div class="alert alert-dismissable alert-warning">
+			<h2>Wrong username or password</h2>
+			<p>Please try again.</p>
+		</div>
+	</div>
+	<br>
+}
+
+<div class="row login-form-container">
+	<div class="login-form-wrapper">
 		<div class="login-form">
 			<h2>Login</h2>
 			@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -17,21 +28,21 @@
 				<br><br><br>
 				<div class="form-group username-input">
 					<div class="col-md-10 col-md-offset-1">
-						@Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
 						<div class="input-wrapper">
 							<input type="text" placeholder="Username" name="Username" id="Username">
 							<div class="line"></div>
 						</div>
+						@Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
 					</div>
 				</div>
 				<br>
 				<div class="form-group">
 					<div class="col-md-10 col-md-offset-1">
-						@Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })						
 						<div class="input-wrapper">
 							<input type="password" placeholder="Password" class="password-input" name="Password" id="Password">
 							<div class="line"></div>
 						</div>
+						@Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })						
 					</div>
 				</div>
 				<br>

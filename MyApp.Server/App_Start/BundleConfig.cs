@@ -8,7 +8,10 @@ namespace MyApp.Server
 		// For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
 		public static void RegisterBundles(BundleCollection bundles)
 		{
-			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+      BundleTable.EnableOptimizations = true;
+      bundles.IgnoreList.Clear();
+
+      bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
 									"~/Scripts/jquery-3.2.1.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -18,8 +21,10 @@ namespace MyApp.Server
 									"~/libs/Chart.bundle.min.js",
 									"~/libs/Chart.min.js"));
 
-			// Use the development version of Modernizr to develop with and learn from. Then, when you're
-			// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+      bundles.Add(new ScriptBundle("~/jslibs/datetimepicker").Include(
+                  "~/Scripts/moment.js",
+                  "~/Scripts/boostrap-datetimepicker.js"));
+
 			bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
 									"~/Scripts/modernizr-*"));
 			
@@ -27,11 +32,11 @@ namespace MyApp.Server
 								"~/Scripts/bootstrap.js",
 								"~/Scripts/respond.js"));
 
-			//bundles.Add(new ScriptBundle("~/bundles/scroll").Include(
-			//					"~/libs/perfect-scrollbar.jquery.min.js",
-			//					"~/libs/perfect-scrollbar.min.js"));
+      bundles.Add(new ScriptBundle("~/bundles/scroll").Include(
+                "~/Scripts/perfect-scrollbar.jquery.js",
+                "~/Scripts/perfect-scrollbar.js"));
 
-			bundles.Add(new StyleBundle("~/bundles/defaults").Include(
+      bundles.Add(new StyleBundle("~/bundles/defaults").Include(
 								"~/libs/bootstrap.min.css",
 								"~/libs/font-awesome.min.css"));
 

@@ -3,44 +3,74 @@
 	ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
-
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-	@Html.AntiForgeryToken()
-	<h4>Create a new account.</h4>
-	<hr />
-		@Html.ValidationSummary("", new { @class = "text-danger" })
-		<div class="form-group">
-			@Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
-			</div>
-		</div>
-		<div class="form-group">
-			@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-			<div class="col-md-10">
-				@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-			</div>
-		</div>
-		<div class="form-group">
-			@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-			<div class="col-md-10">
-				@Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-			</div>
-		</div>
-		<div class="form-group">
-			@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-			<div class="col-md-10">
-				@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-md-offset-2 col-md-10">
-				<input type="submit" class="btn btn-default" value="Register" />
-			</div>
-		</div>
+@section styles {
+	<link rel="stylesheet" href="~/css/register.css">
 }
+
+<div class="row register-form-container">
+	<div class="register-form-wrapper">
+		<div class="register-form">
+			<h2>Sign up</h2>
+			@using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+			{
+				@Html.AntiForgeryToken()
+				<br>
+				<div class="form-group username-input">
+					<div class="col-md-10 col-md-offset-1">
+						<div class="input-wrapper">
+							<input type="text" placeholder="Username" name="Username" id="Username">
+							<div class="line"></div>
+						</div>
+						@Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<br>
+				<div class="form-group email-input">
+					<div class="col-md-10 col-md-offset-1">
+						<div class="input-wrapper">
+							<input type="text" placeholder="Email" name="Email" id="Email">
+							<div class="line"></div>
+						</div>
+						@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+					</div>
+				</div>
+				<br>
+				<div class="form-group">
+					<div class="col-md-10 col-md-offset-1">
+						<div class="input-wrapper">
+							<input type="password" placeholder="Password" class="password-input" name="Password" id="Password">
+							<div class="line"></div>
+						</div>
+						@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })						
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-10 col-md-offset-1">
+						<div class="input-wrapper">
+							<input type="password" placeholder="Confirm Password" class="password-input" name="ConfirmPassword" id="ConfirmPassword">
+							<div class="line"></div>
+						</div>
+						@Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })						
+					</div>
+				</div>
+				<br>
+				<div class="form-group">
+					<div class="col-md-10 col-md-offset-1">
+						<input type="submit" value="Go" id="register-btn" class="btn btn-primary">
+					</div>
+				</div>
+			}			
+			<div class="login-section col-md-10 col-md-offset-1">
+				<div class="panel panel-primary">
+					<div class="panel-heading">If you already have an account</div>
+					<div class="panel-body">
+						<a href="/account/login" class="btn btn-success col-md-12">Sign in</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")

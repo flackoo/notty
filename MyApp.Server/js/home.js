@@ -1,15 +1,18 @@
-$(document).ready(function() {
-  var app = app || {};
-  
+$(document).ready(function() {  
+  (function pageListeners() {
+    $(document).on('click', function(ev){
+      let trgt = $(ev.target);
+      if(!helpers.isTarget('.priority-dialog', trgt) && !helpers.isTarget('#note-priority-btn', trgt))
+        noteManager.closeDialog();
+    });
+  }());
+
   addDonutChart();
   newNoteListeners();
 
   function addDonutChart() {
     let div = $("#doughnut-container"),
         height = $('#advantages-container').height();
-
-    // div.attr('height', height);
-    // div.attr('width', height);
     
     var myPieChart = new Chart(div,{
       type: 'doughnut',
@@ -43,17 +46,19 @@ $(document).ready(function() {
       $(this).height(totalHeight);
 
       if(totalHeight > $('.add-note-container').height()) 
-        $('.new-note-content').perfectScrollbar();      
+      {
+        $('.new-note-content').perfectScrollbar('destroy');
+        $('.new-note-content').perfectScrollbar();
+      }
+              
     });
 
-    $('#add-note-btn').click(function () {
-      alert("Oshte ne si gotow!");
+    $('#note-reminder-btn').click(function () {
+      noteManager.noteReminderDialog();
     });
 
-    $('#note-reminder-btn').click(function() {
+    $('#note-priority-btn').click(function() {
       noteManager.notePriorityDialog();
     });
-  }
-
-  
+  }  
 });

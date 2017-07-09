@@ -7,6 +7,8 @@
 	@Styles.Render("~/bundles/defaults")
 	@Styles.Render("~/Content/css")
 	@Scripts.Render("~/bundles/modernizr")
+	<!--@Scripts.Render("~/jslibs/scroll")
+	@Scripts.Render("~/jslibs/datetimepicker")-->
 	@RenderSection("styles", required: false)
 </head>
 <body>
@@ -37,6 +39,7 @@
 
 	<!--@Scripts.Render("~/bundles/jquery")-->
 	<script src="~/Scripts/jquery-3.2.1.js"></script>
+	<script src="~/js/helpers.js"></script>
 	@Scripts.Render("~/bundles/bootstrap")
 	@RenderSection("scripts", required: false)
 </body>

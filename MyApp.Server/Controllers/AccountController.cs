@@ -1,21 +1,17 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using MyApp.Server.Models;
-using MyApp.Models;
-using MyApp.Data.UnitOfWork;
-using MyApp.Data;
-
-namespace MyApp.Server.Controllers
+﻿namespace MyApp.Server.Controllers
 {
-	[Authorize]
+  using System.Linq;
+  using System.Threading.Tasks;
+  using System.Web;
+  using System.Web.Mvc;
+  using Microsoft.AspNet.Identity;
+  using Microsoft.AspNet.Identity.Owin;
+  using Microsoft.Owin.Security;
+  using Models;
+  using MyApp.Models;
+  using Data.UnitOfWork;
+
+  [Authorize]
 	public class AccountController : BaseController
 	{
 		private ApplicationSignInManager _signInManager;
@@ -97,7 +93,8 @@ namespace MyApp.Server.Controllers
 					return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
 				case SignInStatus.Failure:
 				default:
-					ModelState.AddModelError("", "Invalid login attempt.");
+          this.ViewBag.LoginError = true;
+					ModelState.AddModelError("Login", "Invalid login attempt.");
 					return View(model);
 			}
 		}
@@ -178,7 +175,6 @@ namespace MyApp.Server.Controllers
 				}
 				AddErrors(result);
 			}
-
 			// If we got this far, something failed, redisplay form
 			return View(model);
 		}

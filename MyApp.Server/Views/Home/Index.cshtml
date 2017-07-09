@@ -2,14 +2,18 @@
 	ViewBag.Title = "Notty";
 }
 
-@Scripts.Render("~/bundles/chartjs")
 
 @section styles {
 	<link rel="stylesheet" href="~/libs/perfect-scrollbar.css">
+	<link rel="stylesheet" href="~/libs/bootstrap-datetimepicker.css" />
 	<link rel="stylesheet" href="~/css/home.css">
 }
 
 @section scripts {
+	@Scripts.Render("~/bundles/chartjs")
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>                       
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="~/Scripts/perfect-scrollbar.jquery.js"></script>
 	<script src="~/Scripts/perfect-scrollbar.js"></script>
 	<script src="~/js/noteManager.js"></script>
