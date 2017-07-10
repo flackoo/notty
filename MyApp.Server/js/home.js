@@ -3,7 +3,10 @@ $(document).ready(function() {
     $(document).on('click', function(ev){
       let trgt = $(ev.target);
       if(!helpers.isTarget('.priority-dialog', trgt) && !helpers.isTarget('#note-priority-btn', trgt))
-        noteManager.closeDialog();
+        noteManager.closePriorDialog(false);
+
+      if(!helpers.isTarget('.reminder-dialog', trgt) && !helpers.isTarget('#note-reminder-btn', trgt))
+        noteManager.closeRemindDialog(true, 'remind');
     });
   }());
 
@@ -59,6 +62,10 @@ $(document).ready(function() {
 
     $('#note-priority-btn').click(function() {
       noteManager.notePriorityDialog();
+    });
+
+    $('#add-note-btn').click(function() {
+      noteManager.addNote();
     });
   }  
 });

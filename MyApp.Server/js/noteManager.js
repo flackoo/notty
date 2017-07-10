@@ -39,10 +39,10 @@ var noteManager = (function() {
       $('.add-note-container').attr('data-prior', index);
       $('#note-priority-btn').css('background', bckgrnd);
 
-      noteManager.closeDialog();
+      noteManager.closePriorDialog();
     },
     notePriorityDialog: function() {
-      let window = $('<div class="alert alert-primary priority-dialog">'),
+      let window = $('<div class="alert alert-primary dialog-box priority-dialog">'),
           starsContainer = $('<div class="stars-container">');
     
       window.html("<h2>Choose note priority</h2>");
@@ -70,7 +70,7 @@ var noteManager = (function() {
       
       funcs.paintStars($('.add-note-container').attr('data-prior'));
     },
-    closeDialog: function() {
+    closePriorDialog: function() {
       let prDialog = $('.priority-dialog');
       prDialog.css({
         'transition': 'all 0.2s ease-in-out',
@@ -87,15 +87,59 @@ var noteManager = (function() {
       }, 250);
     },
     noteReminderDialog: function() {
-      let window = $('<div class="alert reminder-dialog alert-info">').append('<h2>Set reminder</h2>'),
+      let window = $('<div class="alert alert-info dialog-box reminder-dialog">').append('<h2>Set reminder</h2>'),
           picker = $('<div class="input-group date" id="reminder-date-input">')
                       .append([
-                        $('<input type="text" class="form-control">'),
+                        $('<input type="text" data-format="yyyy-MM-dd hh:mm:ss" class="form-control">'),
                         $('<span class="input-group-addon">').append($('<i class="fa fa-calendar">'))
                       ]);
 
       window.append(picker).appendTo($('body'));
       $('#reminder-date-input').datetimepicker();
+    },
+    closeRemindDialog: function() {
+      let remDialog = $('.reminder-dialog'),
+          value = $('#reminder-date-input').find('.form-control').val();
+
+      remDialog.css({
+        'transition': 'all 0.2s ease-in-out',
+        'overflow': 'hidden'
+      });
+
+      remDialog.css({
+        'transform': 'translateX(-50%) translateY(-' + (remDialog.height() + 20) + 'px)',
+        'padding': '0px'
+      });
+
+      $('.add-note-container').attr('data-remind', value);
+      $('#note-reminder-btn').css('background', '#e5f442');
+      
+      setTimeout(function() {
+        remDialog.remove();
+      }, 250);
+    },
+    addNote: function(){
+      let noteContainer = $('.add-note-container');
+      
+      let values = {
+        content: noteContainer.find('#new-note-input').val(),
+        reminder: noteContainer.attr('data-remind'),
+        priority: noteContainer.attr('data-prior')
+      };
+
+      if(values.content.length < 5)
+        helpers.showMessage('warning', 'Note content should be long at least 5 symbols', true);
+
+      // $.ajax({
+      //   method: 'GET',
+      //   url: '/notes/add',
+      //   data: values,
+      //   success: function() {
+      //   },
+      //   error: function(msg){
+      //     helpers.showMessage('error', msg, true);
+      //   }
+      // });
     }
   }
   return funcs;

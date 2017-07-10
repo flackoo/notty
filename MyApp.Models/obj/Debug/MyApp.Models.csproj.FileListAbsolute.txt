@@ -40,3 +40,17 @@ C:\Users\Flacko\Desktop\MyApp1\MyApp.Models\bin\Debug\Microsoft.AspNet.Identity.
 C:\Users\Flacko\Desktop\MyApp1\MyApp.Models\obj\Debug\MyApp.Models.csprojResolveAssemblyReference.cache
 C:\Users\Flacko\Desktop\MyApp1\MyApp.Models\obj\Debug\MyApp.Models.dll
 C:\Users\Flacko\Desktop\MyApp1\MyApp.Models\obj\Debug\MyApp.Models.pdb
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\MyApp.Models.dll.config
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\MyApp.Models.dll
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\MyApp.Models.pdb
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\User\Desktop\notty\MyApp.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\User\Desktop\notty\MyApp.Models\obj\Debug\MyApp.Models.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\notty\MyApp.Models\obj\Debug\MyApp.Models.dll
+C:\Users\User\Desktop\notty\MyApp.Models\obj\Debug\MyApp.Models.pdb
