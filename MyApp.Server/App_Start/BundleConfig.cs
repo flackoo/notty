@@ -12,7 +12,7 @@ namespace MyApp.Server
       bundles.IgnoreList.Clear();
 
       bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-									"~/Scripts/jquery-3.2.1.js"));
+									"~/Scripts/jquery-2.2.4.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
 									"~/Scripts/jquery.validate*"));
@@ -21,7 +21,7 @@ namespace MyApp.Server
 									"~/libs/Chart.bundle.min.js",
 									"~/libs/Chart.min.js"));
 
-      bundles.Add(new ScriptBundle("~/jslibs/datetimepicker").Include(
+      bundles.Add(new ScriptBundle("~/bundles/datetimepicker").Include(
                   "~/Scripts/moment.js",
                   "~/Scripts/boostrap-datetimepicker.js"));
 

@@ -42,6 +42,8 @@ var noteManager = (function() {
       noteManager.closePriorDialog();
     },
     notePriorityDialog: function() {
+      if($('.priority-dialog').length) return;
+
       let window = $('<div class="alert alert-primary dialog-box priority-dialog">'),
           starsContainer = $('<div class="stars-container">');
     
@@ -87,10 +89,11 @@ var noteManager = (function() {
       }, 250);
     },
     noteReminderDialog: function() {
+      if($('.reminder-dialog').length) return;
       let window = $('<div class="alert alert-info dialog-box reminder-dialog">').append('<h2>Set reminder</h2>'),
           picker = $('<div class="input-group date" id="reminder-date-input">')
                       .append([
-                        $('<input type="text" data-format="yyyy-MM-dd hh:mm:ss" class="form-control">'),
+                        $('<input type="text" data-format="yyyy-MM-dd hh:mm" class="form-control">'),
                         $('<span class="input-group-addon">').append($('<i class="fa fa-calendar">'))
                       ]);
 
@@ -122,24 +125,31 @@ var noteManager = (function() {
       let noteContainer = $('.add-note-container');
       
       let values = {
-        content: noteContainer.find('#new-note-input').val(),
-        reminder: noteContainer.attr('data-remind'),
-        priority: noteContainer.attr('data-prior')
+        Content: noteContainer.find('#new-note-input').val(),
+        Reminder: noteContainer.attr('data-remind'),
+        Priority: noteContainer.attr('data-prior')
       };
 
-      if(values.content.length < 5)
+      if(values.Content === undefined || values.Content.length < 5){
         helpers.showMessage('warning', 'Note content should be long at least 5 symbols', true);
+        return;
+      }
 
-      // $.ajax({
-      //   method: 'GET',
-      //   url: '/notes/add',
-      //   data: values,
-      //   success: function() {
-      //   },
-      //   error: function(msg){
-      //     helpers.showMessage('error', msg, true);
-      //   }
-      // });
+      $.ajax({
+        method: 'POST',
+        url: '/notes/add',
+        data: values,
+        success: function(result){
+          console.log(result);
+          if(result.success === true)
+            helpers.showMessage('success', result.message, true);
+          else 
+            helpers.showMessage('danger', result.message, true);
+        },
+        error: function(msg){
+          helpers.showMessage('error', msg.message, true);
+        }
+      });
     }
   }
   return funcs;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyApp.Models
@@ -8,14 +9,15 @@ namespace MyApp.Models
 		[Key]
 		public int Id { get; set; }
 
-		public string Title { get; set; }
+    public NotePriorityType Priority { get; set; }
 
+    [Required]
 		public string Content { get; set; }
 
 		public virtual User Author { get; set; }
 
 		public DateTime PostedOn { get; set; }
 
-		public DateTime Reminder { get; set; }
+		public DateTime? Reminder { get; set; }
 	}
 }

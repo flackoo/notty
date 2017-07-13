@@ -1,11 +1,11 @@
 ﻿namespace MyApp.Models
 {
-	public enum NotePriorityType {
-		Normal,
-		Special,
-		Important,
-		LifeOrDeath,
-		HOT
-	}
-
+  public enum NotePriorityType
+  {
+    Normal,
+    Special,
+    Serious,
+    Important,
+    Mandatory
+  }
 }
