@@ -102,7 +102,7 @@ var noteManager = (function() {
     },
     closeRemindDialog: function() {
       let remDialog = $('.reminder-dialog'),
-          value = $('#reminder-date-input').find('.form-control').val();
+          value = moment($('#reminder-date-input').data().date).format();
 
       remDialog.css({
         'transition': 'all 0.2s ease-in-out',
@@ -131,7 +131,7 @@ var noteManager = (function() {
       };
 
       if(values.Content === undefined || values.Content.length < 5){
-        helpers.showMessage('warning', 'Note content should be long at least 5 symbols', true);
+        helpers.showMessage('warning', 'Note content should be long at least 5 symbols', true, 2000);
         return;
       }
 
@@ -142,12 +142,12 @@ var noteManager = (function() {
         success: function(result){
           console.log(result);
           if(result.success === true)
-            helpers.showMessage('success', result.message, true);
+            helpers.showMessage('success', result.message, false, 3500);
           else 
-            helpers.showMessage('danger', result.message, true);
+            helpers.showMessage('danger', result.message, false, 3500);
         },
         error: function(msg){
-          helpers.showMessage('error', msg.message, true);
+          helpers.showMessage('error', msg.message, false, 3500);
         }
       });
     }

@@ -25,15 +25,16 @@
 			}
       try
       {
-        string dateString = model.Reminder.Remove(model.Reminder.Length - 3, 3) + ":00 GMT";
         Note note = new Note
         {
           Author = this.UserProfile,
           Content = model.Content,
           PostedOn = DateTime.Now,
           Priority = model.Priority > 0 && model.Priority < 6 ? (NotePriorityType)model.Priority : NotePriorityType.Normal,
-          Reminder = model.Reminder != null ? DateTime.Parse(dateString) : (DateTime?)null
+          Reminder = model.Reminder != null ? DateTime.Parse(model.Reminder) : (DateTime?)null
         };
+				if (note.Priority == 0) note.Priority = NotePriorityType.Normal;
+
         this.UserProfile.Notes.Add(note);
         this.Data.SaveChanges();
 

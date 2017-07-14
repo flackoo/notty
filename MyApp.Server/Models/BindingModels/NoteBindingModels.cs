@@ -14,7 +14,7 @@ namespace MyApp.Server.Models.BindingModels
 
 		public string Reminder { get; set; }
 
-    [Range(1, 5)]
+    [Range(0, 5)]
 		public int Priority { get; set; }
 	}
 }

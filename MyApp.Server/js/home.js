@@ -12,6 +12,7 @@ $(document).ready(function() {
 
   addDonutChart();
   newNoteListeners();
+  squareNotes();
 
   function addDonutChart() {
     let div = $("#doughnut-container"),
@@ -68,4 +69,16 @@ $(document).ready(function() {
       noteManager.addNote();
     });
   }  
+
+  function squareNotes() {
+    $.map($('.note'), function(note, index) {
+      $(note).css('height', $(note).css('width'));
+    });
+    
+    $(window).resize(function() {
+      $.map($('.note'), function(note, index) {
+        $(note).css('height', $(note).css('width'));
+      });
+    });
+  }
 });

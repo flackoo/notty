@@ -1,0 +1,13 @@
+@model ConciseNoteViewModel
+
+<div class="note">
+  <div class="note-content">
+    @Model.Content
+  </div>
+  <div class="note-btn note-priority @Model.Priority.ToLower()" title="Note priority">
+    <i class="fa fa-exclamation"></i>&nbsp;@Model.Priority
+  </div>
+  <div class="note-btn note-reminder" title="Reminder">
+    <i class="fa fa-bell-o"></i>&nbsp; @Model.Reminder
+  </div>  
+</div>

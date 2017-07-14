@@ -38,13 +38,8 @@ namespace MyApp.Server
 
       bundles.Add(new StyleBundle("~/bundles/defaults").Include(
 								"~/libs/bootstrap.min.css",
-								"~/libs/font-awesome.min.css"));
-
-			bundles.Add(new StyleBundle("~/Content/css").Include(
-								"~/css/site.css"));
-
-			//bundles.Add(new StyleBundle("~/libs/scroll").Include(
-			//					"~/libs/perfect-scrollbar.min.css"));
+								"~/libs/font-awesome.min.css",
+								"~/css/Site.css"));
 		}
 	}
 }

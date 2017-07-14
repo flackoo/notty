@@ -25,11 +25,11 @@ var helpers = (function() {
       
       if(callback !== undefined) callback();
     },
-    showMessage: function(type, message, dismissible){
+    showMessage: function(type, message, dismissible, timeout){
       if($('.system-message').length)  {
         helpers.hideMessage('.system-message', 2000, function() {
           setTimeout(function () {
-            helpers.showMessage(type, message, dismissible);
+            helpers.showMessage(type, message, dismissible, timeout);
           }, 500);
         });
       } 
@@ -58,7 +58,7 @@ var helpers = (function() {
           default: break;
         }
         window.appendTo($('body'));
-        helpers.hideMessage('.system-message', 5000);
+        helpers.hideMessage('.system-message', timeout);
       }
     }
   }
