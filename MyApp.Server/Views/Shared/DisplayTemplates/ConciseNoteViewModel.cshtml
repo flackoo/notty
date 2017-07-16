@@ -8,6 +8,14 @@
     <i class="fa fa-exclamation"></i>&nbsp;@Model.Priority
   </div>
   <div class="note-btn note-reminder" title="Reminder">
-    <i class="fa fa-bell-o"></i>&nbsp; @Model.Reminder
+    <i class="fa fa-bell-o"></i>&nbsp;
+    @if(Model.Reminder.HasValue)
+    {
+      <span class="reminder-value">@Html.Raw(Model.Reminder.Value.ToString("dd-MM-yyyy"))</span>
+    }
+    else
+    {
+      <span class="reminder-value">No reminder</span>
+    }
   </div>  
 </div>

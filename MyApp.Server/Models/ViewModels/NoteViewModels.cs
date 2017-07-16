@@ -13,6 +13,6 @@ namespace MyApp.Server.Models.ViewModels
 
 		public string Priority { get; set; }
 
-		public string Reminder { get; set; }
+		public DateTime? Reminder { get; set; }
 	}
 }

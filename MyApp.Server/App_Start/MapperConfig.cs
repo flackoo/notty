@@ -15,8 +15,7 @@
 		{
 			Mapper.Initialize(cfg =>
 			{
-				cfg.CreateMap<Note, ConciseNoteViewModel>()
-					.ForMember(note => note.Reminder, opt => opt.MapFrom(src => src.Reminder.ToString("dd-MM-yyyy")));
+        cfg.CreateMap<Note, ConciseNoteViewModel>();
 			});
 		}
 	}

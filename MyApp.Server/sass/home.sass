@@ -174,6 +174,7 @@
     position: relative
     vertical-align: top
     border-radius: 7px
+    background: #fffd93
     border: 1px solid #d6d6d6
     box-shadow: 1px 1px 3px 3px rgba(#777777, 0.45)
     // &:first-of-type
@@ -205,17 +206,37 @@
       background: #222222
       border-radius: 15px
       &:hover
-        max-width: 110px
+        max-width: 100px
         text-align: center
         // padding-right: 10px
+      &.special
+        background: #be41f4
+      &.normal
+        background: #42f456
+      &.serious
+        background: #414ff4
+      &.important
+        background: #be41f4
+      &.mandatory
+        background: #f44149
       
     .note-reminder
       bottom: 42px
       border-radius: 15px
+      display: flex
+      justify-content: flex-start
+      align-items: center
       line-height: 26px
       transition: all 0.2s linear
+      padding-left: 5.5px
+      background: #f99836
       &:hover
-        max-width: 110px
+        justify-content: center
+        max-width: 120px
         text-align: center
+      
+
+      .reminder-value
+        font-size: 15px
       
     

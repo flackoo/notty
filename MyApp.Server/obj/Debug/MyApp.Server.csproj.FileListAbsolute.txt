@@ -458,3 +458,5 @@ C:\Users\Flacko\Desktop\notty\MyApp.Server\bin\Microsoft.Owin.Security.Twitter.x
 C:\Users\Flacko\Desktop\notty\MyApp.Server\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\User\Desktop\notty\MyApp.Server\bin\AutoMapper.dll
 C:\Users\User\Desktop\notty\MyApp.Server\bin\AutoMapper.xml
+C:\Users\Flacko\Desktop\notty\MyApp.Server\bin\AutoMapper.dll
+C:\Users\Flacko\Desktop\notty\MyApp.Server\bin\AutoMapper.xml
